@@ -12,7 +12,7 @@ typealias MainThreadCompletion = (String?, Error?) -> Void
 
 class MovieListViewModel {
     
-    private(set) var upcomingMovies = []
+    private(set) var upcomingMovies: [Movie] = []
     
     init() { }
 
@@ -22,7 +22,7 @@ class MovieListViewModel {
 extension MovieListViewModel {
     func fetchUpcomingMovies(completion: @escaping MainThreadCompletion) {
         
-        let endPoint = API.movieList(request: <#T##BaseRequestModel#>)
+        let endPoint = API.movieList(request: BaseRequestModel)
         APIClient.shared.request(endPoint: endPoint, decode: DefaultError.self, error: DefaultError.self) { result in
             switch result {
             case let .success(root):

@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  MovieDetailVC.swift
 //  TenTwentyTask
 //
-//  Created by usama on 09/03/2022.
+//  Created by usama on 12/03/2022.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class MovieDetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
 }
-

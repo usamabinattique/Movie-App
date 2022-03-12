@@ -6,7 +6,7 @@
 //
 
 
-import Foundation
+import UIKit
 
 struct Constants {
     
@@ -22,3 +22,6 @@ struct Constants {
 }
 
 
+enum Colors {
+    static let theme = UIColor(hex: "10191F")
+}
