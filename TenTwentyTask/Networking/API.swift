@@ -10,6 +10,7 @@ import UIKit
 /// Main `NetworkEndPoint`s for the app
 enum API: NetworkEndPoint {
     case movieList(request: BaseRequestModel)
+    case movieDetail(reqeust: BaseRequestModel)
 }
 
 /// Implementation of `NetworkEndPoint`
@@ -24,8 +25,9 @@ enum API: NetworkEndPoint {
          
          switch self {
          case .movieList:
-             return "data/2.5/weather"
-
+             return "movie/upcoming"
+         case .movieDetail(let request):
+             return "movie\((request as! MovieDetailRequestable).movieId)"
          }
      }
      
@@ -33,20 +35,12 @@ enum API: NetworkEndPoint {
      var queryItems: KeyValuePairs<String, String>? {
          switch self {
          case let .movieList(movieRequest):
-             
-             if let weatherRequest = weatherRequest as? WeatherRequestable {
-                 return ["apiKey": weatherRequest.apiKey,
-                         "q": weatherRequest.city]
+             if let movieRequest = movieRequest as? MovieRequestable {
+                 return ["api_key": movieRequest.apiKey,
+                         "page": "\(movieRequest.page)"]
              }
-             
              return nil
-         case let .forecast(forecastRequest):
-             if let forecastRequest = forecastRequest as? ForecastRequestable {
-                 return ["apiKey": forecastRequest.apiKey,
-                         "q": forecastRequest.city,
-                         "count": "\(forecastRequest.count)"]
-             }
-             
+         default:
              return nil
          }
      }

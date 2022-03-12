@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BlogsMO" representedClassName=".BlogsMO" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="readStatusId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CodeEnumMO" representedClassName=".CodeEnumMO" syncable="YES">
+        <attribute name="enumType" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="value" attributeType="String"/>
+    </entity>
+    <entity name="ComplianceToolsMO" representedClassName=".ComplianceToolsMO" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="complianceType" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="keyName" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="parentCategoryId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="showInFundamentalStd" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CustomDocumentsMO" representedClassName=".CustomDocumentsMO" parentEntity="PolicyMO" syncable="YES">
+        <attribute name="categoryName" optional="YES" attributeType="String"/>
+        <attribute name="fileName" optional="YES" attributeType="String"/>
+        <attribute name="fileUrl" optional="YES" attributeType="String"/>
+        <attribute name="subCategoryName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CustomFieldMO" representedClassName=".CustomFieldMO" syncable="YES">
+        <attribute name="clientId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="customFieldId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="customFieldisDeleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="customFieldName" optional="YES" attributeType="String"/>
+        <attribute name="edited" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="FontIconsMO" representedClassName=".FontIconsMO" syncable="YES">
+        <attribute name="iconCode" optional="YES" attributeType="String"/>
+        <attribute name="iconColor" optional="YES" attributeType="String"/>
+        <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="itemModule" optional="YES" attributeType="String"/>
+        <attribute name="itemName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="FundamentalStandardsModulesMO" representedClassName=".FundamentalStandardsModulesMO" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="ref" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="KloePoliciesMO" representedClassName=".KloePoliciesMO" syncable="YES">
+        <attribute name="kloeId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="kloePolicyId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="kloePolicyType" optional="YES" attributeType="String"/>
+        <relationship name="kloe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KloesMO" inverseName="kloePolicies" inverseEntity="KloesMO"/>
+    </entity>
+    <entity name="KloesMO" representedClassName=".KloesMO" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="cqcStandardCode" optional="YES" attributeType="String"/>
+        <attribute name="cqcStandardId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="kloePolicies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KloePoliciesMO" inverseName="kloe" inverseEntity="KloePoliciesMO"/>
+    </entity>
+    <entity name="MasterMO" representedClassName=".MasterMO" syncable="YES">
+        <attribute name="clientId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastSyncDate" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="moduleName" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="MenuDataMO" representedClassName=".MenuDataMO" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="systemMenuData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SystemMenuMO" inverseName="menuData" inverseEntity="SystemMenuMO"/>
+    </entity>
+    <entity name="OfflineEmailUsersMO" representedClassName=".OfflineEmailUsersMO" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="isExternal" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="message" optional="YES" attributeType="String"/>
+        <attribute name="policyRef" optional="YES" attributeType="String"/>
+        <attribute name="sectionTypes" optional="YES" attributeType="String"/>
+        <attribute name="setId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PackagePoliciesMO" representedClassName=".PackagePoliciesMO" syncable="YES">
+        <attribute name="deletedBit" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="packageId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="policyId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="PolicyDetailMO" representedClassName=".PolicyDetailMO" syncable="YES">
+        <attribute name="policyId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ref" optional="YES" attributeType="String"/>
+        <attribute name="tabId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tabKey" optional="YES" attributeType="String"/>
+        <attribute name="tabValue" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PolicyEmailUserMO" representedClassName=".PolicyEmailUserMO" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="expiryDate" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="Date"/>
+        <attribute name="fullName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isTeamLead" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isTeamMember" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="jobTitleName" optional="YES" attributeType="String"/>
+        <attribute name="lastLogin" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="PolicyMO" representedClassName=".PolicyMO" syncable="YES">
+        <attribute name="businessImpact" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="checked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="documentType" optional="YES" attributeType="String"/>
+        <attribute name="guidancePolicy" optional="YES" attributeType="String"/>
+        <attribute name="hiddenDate" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isHidden" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isPolicyOfMonth" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isReviewCenter" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="ref" optional="YES" attributeType="String"/>
+        <attribute name="replacedByDocID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="reviewDate" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="reviewId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sectionId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="statusId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="subSectionId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="views" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="SectionMO" representedClassName=".SectionMO" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="keyName" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="sectionToSub" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubSectionMO" inverseName="subToSection" inverseEntity="SubSectionMO"/>
+    </entity>
+    <entity name="SubSectionMO" representedClassName=".SubSectionMO" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="keyName" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sectionId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="subToSection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SectionMO" inverseName="sectionToSub" inverseEntity="SectionMO"/>
+    </entity>
+    <entity name="SystemMenuMO" representedClassName=".SystemMenuMO" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String"/>
+        <attribute name="menuDataId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="systemMenuId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="menuData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuDataMO" inverseName="systemMenuData" inverseEntity="MenuDataMO"/>
+    </entity>
+    <entity name="UserDocumentStatusMO" representedClassName=".UserDocumentStatusMO" syncable="YES">
+        <attribute name="docState" optional="YES" attributeType="String"/>
+        <attribute name="docType" optional="YES" attributeType="String"/>
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <attribute name="lastAccessTime" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="policyId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="statusId" optional="YES" attributeType="Integer 32" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="UserPermissionsMO" representedClassName=".UserPermissionsMO" syncable="YES">
+        <attribute name="categoryId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="permissionType" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="userProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfileMO" inverseName="userPermissions" inverseEntity="UserProfileMO"/>
+    </entity>
+    <entity name="UserProfileLocationMO" representedClassName=".UserProfileLocationMO" syncable="YES">
+        <attribute name="clientId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="clientName" optional="YES" attributeType="String"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="packageId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="questionaireCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="userProfileId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="locationToUserProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfileMO" inverseName="userProfileLocation" inverseEntity="UserProfileMO"/>
+    </entity>
+    <entity name="UserProfileMO" representedClassName=".UserProfileMO" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="activeTrialUser" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="documentAccess" optional="YES" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="expiryDate" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="jobTitleId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String"/>
+        <attribute name="userType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="userPermissions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserPermissionsMO" inverseName="userProfile" inverseEntity="UserPermissionsMO"/>
+        <relationship name="userProfileLocation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserProfileLocationMO" inverseName="locationToUserProfile" inverseEntity="UserProfileLocationMO"/>
+        <relationship name="userProfileTeams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserProfileTeamsMO" inverseName="teamsToUserProfile" inverseEntity="UserProfileTeamsMO"/>
+        <relationship name="userToken" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserTokenMO" inverseName="userProfile" inverseEntity="UserTokenMO"/>
+    </entity>
+    <entity name="UserProfileTeamsMO" representedClassName=".UserProfileTeamsMO" syncable="YES">
+        <attribute name="teamLeadId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="userTeamId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="teamsToUserProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfileMO" inverseName="userProfileTeams" inverseEntity="UserProfileMO"/>
+    </entity>
+    <entity name="UserReadingListDocumentsMO" representedClassName=".UserReadingListDocumentsMO" syncable="YES">
+        <attribute name="docId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" customClassName="Date"/>
+        <attribute name="readingListId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="readingList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserReadingListMO" inverseName="docIds" inverseEntity="UserReadingListMO"/>
+    </entity>
+    <entity name="UserReadingListMO" representedClassName=".UserReadingListMO" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="completionDate" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="completionPercentage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="remainingDays" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="updatedDate" optional="YES" attributeType="Transformable" customClassName="Date"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="docIds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserReadingListDocumentsMO" inverseName="readingList" inverseEntity="UserReadingListDocumentsMO"/>
+    </entity>
+    <entity name="UserTokenMO" representedClassName=".UserTokenMO" syncable="YES">
+        <attribute name="access_token" optional="YES" attributeType="String"/>
+        <attribute name="expiredDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="expires_in" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="locationState" optional="YES" attributeType="String"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String"/>
+        <attribute name="userPassword" optional="YES" attributeType="String"/>
+        <relationship name="userProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfileMO" inverseName="userToken" inverseEntity="UserProfileMO"/>
+    </entity>
+    <elements>
+        <element name="CodeEnumMO" positionX="-867.28125" positionY="183.2734375" width="128" height="90"/>
+        <element name="ComplianceToolsMO" positionX="-855" positionY="144" width="128" height="150"/>
+        <element name="CustomDocumentsMO" positionX="-54.13671875" positionY="446.921875" width="128" height="105"/>
+        <element name="CustomFieldMO" positionX="-54" positionY="135" width="128" height="150"/>
+        <element name="FontIconsMO" positionX="-1035" positionY="153" width="128" height="118"/>
+        <element name="FundamentalStandardsModulesMO" positionX="-1035" positionY="153" width="128" height="88"/>
+        <element name="KloePoliciesMO" positionX="-1026" positionY="162" width="128" height="103"/>
+        <element name="KloesMO" positionX="-1035" positionY="153" width="128" height="133"/>
+        <element name="MasterMO" positionX="-890.3984375" positionY="36.66015625" width="128" height="120"/>
+        <element name="MenuDataMO" positionX="-724.28515625" positionY="269.33984375" width="128" height="88"/>
+        <element name="OfflineEmailUsersMO" positionX="-1035" positionY="153" width="128" height="148"/>
+        <element name="PackagePoliciesMO" positionX="-1024.56640625" positionY="87.8515625" width="128" height="90"/>
+        <element name="PolicyDetailMO" positionX="-307.8515625" positionY="236.58984375" width="128" height="118"/>
+        <element name="PolicyEmailUserMO" positionX="-1035" positionY="153" width="128" height="193"/>
+        <element name="PolicyMO" positionX="-407.10546875" positionY="565.8125" width="128" height="343"/>
+        <element name="SectionMO" positionX="-722.484375" positionY="34.35546875" width="128" height="103"/>
+        <element name="SubSectionMO" positionX="-502.3671875" positionY="7.47265625" width="128" height="120"/>
+        <element name="SystemMenuMO" positionX="-1055.265625" positionY="256.53515625" width="128" height="103"/>
+        <element name="UserDocumentStatusMO" positionX="-1237.63671875" positionY="786.30859375" width="128" height="148"/>
+        <element name="UserPermissionsMO" positionX="-990.26171875" positionY="592.55859375" width="128" height="120"/>
+        <element name="UserProfileLocationMO" positionX="-116.14453125" positionY="623.87890625" width="128" height="165"/>
+        <element name="UserProfileMO" positionX="-714.9140625" positionY="514.1484375" width="128" height="285"/>
+        <element name="UserProfileTeamsMO" positionX="-199.1640625" positionY="359.9140625" width="128" height="105"/>
+        <element name="UserReadingListDocumentsMO" positionX="-1026" positionY="162" width="128" height="118"/>
+        <element name="UserReadingListMO" positionX="-1035" positionY="153" width="128" height="193"/>
+        <element name="UserTokenMO" positionX="-325.1953125" positionY="3.58203125" width="128" height="180"/>
+        <element name="BlogsMO" positionX="-1035" positionY="153" width="128" height="103"/>
+    </elements>
+</model>

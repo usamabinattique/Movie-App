@@ -14,6 +14,14 @@ class MovieListViewModel {
     
     private(set) var upcomingMovies: [Movie] = []
     
+    var newCount = 0
+    private(set) var pageCount: Int?
+    var shouldLoadMore = true
+
+    var currentCount: Int {
+        upcomingMovies.count
+    }
+    
     init() { }
 
 }
@@ -22,13 +30,17 @@ class MovieListViewModel {
 extension MovieListViewModel {
     func fetchUpcomingMovies(completion: @escaping MainThreadCompletion) {
         
-        let endPoint = API.movieList(request: BaseRequestModel)
-        APIClient.shared.request(endPoint: endPoint, decode: DefaultError.self, error: DefaultError.self) { result in
+        
+        let request: MovieRequestable = MovieRequest(apiKey: Constants.apiKey)
+        
+        let endPoint = API.movieList(request: request)
+        APIClient.shared.request(endPoint: endPoint, decode: MoviesRoot.self, error: DefaultError.self) { result in
             switch result {
             case let .success(root):
                                 
-                if let weatherRoot = root as? Weather {
-                    self.weather = weatherRoot
+                if let movieRoot = root as? MoviesRoot {
+                    
+                    self.upcomingMovies = movieRoot.results
                     completion(nil, nil)
                 }
             case let .failure(error):
@@ -38,7 +50,7 @@ extension MovieListViewModel {
                     switch unauthorizedError {
                     case .unauthorized(let response):
                         if let root = response as? ErrorHandler {
-                            completion(root.message, nil)
+                            completion(root.status_message, nil)
                         }
                     default:
                         completion(nil, error)

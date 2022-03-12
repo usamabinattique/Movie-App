@@ -19,13 +19,23 @@ class UpcomingMoviesVC: BaseVC {
         getMovies()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailController = segue.destination as? MovieInjector, let movie = sender as? Movie {
+            detailController.inject(viewModel: MovieDetailViewModel(movie: movie))
+        }
+    }
 }
 
 extension UpcomingMoviesVC {
+    
     func setupUI() {
         viewModel = MovieListViewModel()
-        tableView.registerNib(cell: MoviesCell.self)
+        tableView.estimatedRowHeight = 80.0
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = .clear
+        tableView.tableFooterView =  UIView()
         tableView.dataSource = self
+        tableView.registerNib(cell: MoviesCell.self)
     }
     
     func getMovies() {
@@ -60,5 +70,12 @@ extension UpcomingMoviesVC: UITableViewDataSource {
         let cell: MoviesCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.movie = viewModel.upcomingMovies[indexPath.row]
         return cell
+    }
+}
+
+
+extension UpcomingMoviesVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: MovieDetailVC.storyboardIdentifier, sender: viewModel.upcomingMovies[indexPath.row])
     }
 }

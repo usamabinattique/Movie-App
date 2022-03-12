@@ -8,8 +8,9 @@ target 'TenTwentyTask' do
   # Pods for TenTwentyTask
   pod 'SVProgressHUD'
   pod 'Kingfisher', '~> 6.0'
+  pod 'netfox', :configurations => ['Debug']
 
-
+  
   target 'TenTwentyTaskTests' do
     inherit! :search_paths
     # Pods for testing

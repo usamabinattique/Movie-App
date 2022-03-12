@@ -11,7 +11,7 @@ class MoviesCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var releaseYear: UILabel!
-    @IBOutlet weak var description: UITextView!
+    @IBOutlet weak var movieDescription: UITextView!
     @IBOutlet weak var icon: UIImageView!
 
     
@@ -19,12 +19,20 @@ class MoviesCell: UITableViewCell {
         didSet {
             title.text = movie.title
             releaseYear.text = movie.releaseDate
+            movieDescription.text = movie.overview
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupUI()
     }
 
+    func setupUI() {
+        backgroundColor = Colors.theme
+        title.font = UIFont(defaultFontStyle: .regular, size: 13.0)
+        movieDescription.font = UIFont(defaultFontStyle: .regular, size: 12.0)
+        releaseYear.font = UIFont(defaultFontStyle: .regular, size: 13.0)
+    }
+    
 }
