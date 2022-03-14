@@ -23,12 +23,5 @@ class AppearanceProxyManager {
     func applyDefaultControllsApperance() {
         
         theme.apply(for: UIApplication.shared)
-//        if #available(iOS 15, *) {
-//            let appearance = UINavigationBarAppearance()
-//            appearance.configureWithOpaqueBackground()
-//            appearance.shadowColor = .yellow
-//            UINavigationBar.appearance().standardAppearance = appearance
-//            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-//        }
     }
 }

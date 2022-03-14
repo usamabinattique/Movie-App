@@ -28,7 +28,7 @@ struct Dates: Codable {
 // MARK: - Result
 struct Movie: Codable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let genreIDS: [Int]
     let id: Int
     let originalLanguage: String
@@ -54,4 +54,9 @@ struct Movie: Codable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
+    
+    var language: LANGUAGE {
+        LANGUAGE(rawValue: originalLanguage) ?? .en
+    }
 }
+

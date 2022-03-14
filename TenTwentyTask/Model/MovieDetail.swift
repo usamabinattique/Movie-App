@@ -9,22 +9,22 @@
 // MARK: - Temperatures
 struct MovieDetail: Codable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let belongsToCollection: BelongsToCollection?
-    let budget: Int
+    let budget: Int?
     let genres: [Genre]
     let homepage: String
     let id: Int
-    let imdbID, originalLanguage, originalTitle, overview: String
-    let popularity: Double
-    let posterPath: String
+    let imdbID, originalLanguage, originalTitle, overview: String?
+    let popularity: Double?
+    let posterPath: String?
     let productionCompanies: [ProductionCompany]
     let productionCountries: [ProductionCountry]
-    let releaseDate: String
-    let revenue, runtime: Int
+    let releaseDate: String?
+    let revenue, runtime: Int?
     let spokenLanguages: [SpokenLanguage]
-    let status, tagline, title: String
-    let video: Bool
+    let status, tagline, title: String?
+    let video: Bool?
     let voteAverage: Double
     let voteCount: Int
 
@@ -46,6 +46,10 @@ struct MovieDetail: Codable {
         case status, tagline, title, video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+    }
+    
+    var language: LANGUAGE {
+        LANGUAGE(rawValue: originalLanguage ?? "en") ?? .en
     }
 }
 

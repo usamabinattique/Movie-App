@@ -51,6 +51,23 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PdB-Jn-24f">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" red="0.062745098040000002" green="0.098039215690000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                            <textAttributes key="titleTextAttributes">
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.062745098039215685" green="0.098039215686274508" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                            <textAttributes key="titleTextAttributes">
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -61,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="77.678571428571431"/>
         </scene>
-        <!--SearchVC-->
+        <!--Search-->
         <scene sceneID="UAU-Mw-A0z">
             <objects>
                 <viewController storyboardIdentifier="SearchVC" id="ZFx-vU-a7f" customClass="SearchVC" customModule="TenTwentyTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -93,10 +110,11 @@
                             <constraint firstItem="ANy-7O-97r" firstAttribute="leading" secondItem="ADA-Ux-7ck" secondAttribute="leading" id="hs3-Oe-B3r"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qBM-Up-uVV"/>
+                    <navigationItem key="navigationItem" title="Search" id="qBM-Up-uVV"/>
                     <connections>
                         <outlet property="searchBar" destination="ANy-7O-97r" id="oYB-eK-6Xv"/>
                         <outlet property="tableView" destination="KgZ-S1-Nsz" id="bZD-PH-KpC"/>
+                        <segue destination="cbg-LM-io9" kind="show" identifier="MovieDetailVC" id="IcF-3O-SLf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMe-op-oeN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -151,8 +169,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watched by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA9-Bf-QOp">
-                                <rect key="frame" x="251" y="741" width="77" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA9-Bf-QOp">
+                                <rect key="frame" x="251" y="741" width="45.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -253,14 +271,14 @@
                     <navigationItem key="navigationItem" id="paX-f6-d0q"/>
                     <connections>
                         <outlet property="art" destination="5i4-DK-JVb" id="ecH-rh-rqa"/>
-                        <outlet property="languageLabel" destination="f0x-96-HwP" id="HPO-2E-3i5"/>
+                        <outlet property="language" destination="f0x-96-HwP" id="HPO-2E-3i5"/>
                         <outlet property="movieDescription" destination="7bB-d3-Ctf" id="idK-Lx-K0e"/>
                         <outlet property="movieTitle" destination="jxr-DS-GGE" id="OQJ-or-ZI6"/>
                         <outlet property="populairtySeekBar" destination="T9L-sw-zcv" id="Byo-qr-L2R"/>
                         <outlet property="ratingsSeekBar" destination="Alj-9U-ahW" id="HgJ-qO-0fA"/>
-                        <outlet property="releaseYearLabel" destination="K20-Xw-pru" id="EAe-Ts-IXS"/>
+                        <outlet property="releaseYear" destination="K20-Xw-pru" id="EAe-Ts-IXS"/>
                         <outlet property="tagLine" destination="bw2-c7-GGx" id="PqQ-eT-98S"/>
-                        <outlet property="votesCountLabel" destination="xzz-cM-VcB" id="CCj-AK-Ugc"/>
+                        <outlet property="votes" destination="xzz-cM-VcB" id="CCj-AK-Ugc"/>
                         <segue destination="T9i-w6-8XQ" kind="show" identifier="BookingVC" id="Hh9-o3-ySU"/>
                     </connections>
                 </viewController>
@@ -461,6 +479,9 @@ Cg
             <point key="canvasLocation" x="1970" y="994"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IcF-3O-SLf"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="Blue">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>

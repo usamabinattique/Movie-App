@@ -13,34 +13,46 @@ typealias MainThreadCompletion = (String?, Error?) -> Void
 class MovieListViewModel {
     
     private(set) var upcomingMovies: [Movie] = []
+    var movieRequest: MovieRequestable!
     
     var newCount = 0
-    private(set) var pageCount: Int?
     var shouldLoadMore = true
 
     var currentCount: Int {
         upcomingMovies.count
     }
     
-    init() { }
-
+    init() {
+        movieRequest = MovieRequest(apiKey: Constants.apiKey, page: 1)
+    }
 }
 
 
 extension MovieListViewModel {
     func fetchUpcomingMovies(completion: @escaping MainThreadCompletion) {
-        
-        
-        let request: MovieRequestable = MovieRequest(apiKey: Constants.apiKey, page: 1)
-        
-        let endPoint = API.movieList(request: request)
+                
+        let endPoint = API.movieList(request: movieRequest)
         APIClient.shared.request(endPoint: endPoint, decode: MoviesRoot.self, error: DefaultError.self) { result in
             switch result {
             case let .success(root):
                                 
                 if let movieRoot = root as? MoviesRoot {
                     
-                    self.upcomingMovies = movieRoot.results
+                    self.addMovies(movies: movieRoot.results)
+                    
+                    if self.movieRequest.page > 1 {
+                        self.newCount = movieRoot.results.count
+                    }
+
+                    
+                    if self.movieRequest.page <= movieRoot.totalPages {
+                        self.movieRequest.page += 1
+                        
+                        if self.movieRequest.page == movieRoot.totalPages {
+                            self.shouldLoadMore = false
+                        }
+                    }
+                    
                     completion(nil, nil)
                 }
             case let .failure(error):
@@ -60,5 +72,11 @@ extension MovieListViewModel {
                 completion(nil, error)
             }
         }
+    }
+}
+
+private extension MovieListViewModel {
+    func addMovies(movies: [Movie]) {
+        self.upcomingMovies.append(contentsOf: movies)
     }
 }

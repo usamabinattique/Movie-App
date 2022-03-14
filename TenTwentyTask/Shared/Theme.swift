@@ -21,9 +21,16 @@ extension Theme {
 //            $0.barStyle = .black
             $0.tintColor = .white
             $0.barTintColor = .white
+
             
             $0.titleTextAttributes = [.foregroundColor: UIColor.white,
                                       .font: UIFont(defaultFontStyle: .bold, size: 19.0)]
+                        
+            $0.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white,
+                                      .font: UIFont(defaultFontStyle: .bold, size: 19.0)]
+            
+            $0.scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor: UIColor.white,
+                                                            .font: UIFont(defaultFontStyle: .bold, size: 19.0)]
 
 
             $0.largeTitleTextAttributes = [

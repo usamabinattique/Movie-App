@@ -19,5 +19,23 @@ public extension Formatter {
         formatter.dateStyle = .long
         return formatter
     }()
-
+    
+    static let yearOnly: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        return formatter
+    }()
+    
+    
+    static let apiFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+    
+    static let apiFormatt: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-dd-MM"
+        return formatter
+    }()
 }

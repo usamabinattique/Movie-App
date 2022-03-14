@@ -39,6 +39,8 @@
 		509BCA4327DF2AFD00C3ACDB /* BookingImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4127DF2AFC00C3ACDB /* BookingImageCell.swift */; };
 		509BCA4427DF2AFD00C3ACDB /* BookingImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 509BCA4227DF2AFD00C3ACDB /* BookingImageCell.xib */; };
 		509BCA4627DF2FC200C3ACDB /* BookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4527DF2FC200C3ACDB /* BookingViewModel.swift */; };
+		509BCA4827DF36A000C3ACDB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4727DF36A000C3ACDB /* String.swift */; };
+		509BCA4A27DF705E00C3ACDB /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4927DF705E00C3ACDB /* Language.swift */; };
 		50E159BA27DCBE2F00471FCF /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E159B927DCBE2F00471FCF /* ErrorHandler.swift */; };
 		50E159BC27DCBE4A00471FCF /* MovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E159BB27DCBE4A00471FCF /* MovieRequest.swift */; };
 		50E159F927DCBF9400471FCF /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E159BE27DCBF9400471FCF /* CoreDataStack.swift */; };
@@ -126,6 +128,8 @@
 		509BCA4127DF2AFC00C3ACDB /* BookingImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingImageCell.swift; sourceTree = "<group>"; };
 		509BCA4227DF2AFD00C3ACDB /* BookingImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingImageCell.xib; sourceTree = "<group>"; };
 		509BCA4527DF2FC200C3ACDB /* BookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewModel.swift; sourceTree = "<group>"; };
+		509BCA4727DF36A000C3ACDB /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		509BCA4927DF705E00C3ACDB /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		50E159B927DCBE2F00471FCF /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		50E159BB27DCBE4A00471FCF /* MovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequest.swift; sourceTree = "<group>"; };
 		50E159BE27DCBF9400471FCF /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				50E15A4A27DE482B00471FCF /* NSObject.swift */,
+				509BCA4727DF36A000C3ACDB /* String.swift */,
 				50E15A3427DCC57800471FCF /* Float.swift */,
 				5006D53D27D91D0D0078D6DE /* Date.swift */,
 				5006D53E27D91D0D0078D6DE /* Formatter.swift */,
@@ -349,6 +354,7 @@
 				5006D55D27D91F9C0078D6DE /* Router.swift */,
 				5006D54327D91D0D0078D6DE /* ImageProvider.swift */,
 				5006D54427D91D0D0078D6DE /* SharedLogger.swift */,
+				509BCA4927DF705E00C3ACDB /* Language.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -767,6 +773,7 @@
 				5006D55627D91D0D0078D6DE /* Formatter.swift in Sources */,
 				5006D54E27D91D0D0078D6DE /* MovieListViewModel.swift in Sources */,
 				50E15A3927DCD52400471FCF /* UIStoryboard.swift in Sources */,
+				509BCA4827DF36A000C3ACDB /* String.swift in Sources */,
 				50E15A4327DCDC8200471FCF /* MovieDetail.swift in Sources */,
 				50E15A3127DCBF9400471FCF /* Extension+NSManagedObjectContext.swift in Sources */,
 				50E15A3B27DCD5E700471FCF /* MovieDetailViewModel.swift in Sources */,
@@ -799,6 +806,7 @@
 				50E15A4927DE47C200471FCF /* Theme.swift in Sources */,
 				5006D55727D91D0D0078D6DE /* Optional.swift in Sources */,
 				5006D54C27D91D0D0078D6DE /* ReusableIdentifier.swift in Sources */,
+				509BCA4A27DF705E00C3ACDB /* Language.swift in Sources */,
 				50E15A3D27DCD82600471FCF /* StoryboardIdentifiable.swift in Sources */,
 				50E159FC27DCBF9400471FCF /* CoreDataProperties.swift in Sources */,
 				5006D54727D91D0D0078D6DE /* API.swift in Sources */,

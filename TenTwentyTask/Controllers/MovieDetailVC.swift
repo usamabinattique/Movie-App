@@ -13,21 +13,22 @@ protocol MovieInjector {
 
 class MovieDetailVC: UIViewController {
     
-    
+    // MARK: IBOutlets
     @IBOutlet weak var art: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var tagLine: UILabel!
     @IBOutlet weak var movieDescription: UITextView!
     @IBOutlet weak var populairtySeekBar: UIProgressView!
     @IBOutlet weak var ratingsSeekBar: UIProgressView!
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var releaseYearLabel: UILabel!
-    @IBOutlet weak var votesCountLabel: UILabel!
+    @IBOutlet weak var language: UILabel!
+    @IBOutlet weak var releaseYear: UILabel!
+    @IBOutlet weak var votes: UILabel!
     
     var movieDetailVM: MovieDetailViewModel!
     private var bookMarkBarButton: UIBarButtonItem!
 
 
+    // MARK: UI Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -43,12 +44,12 @@ class MovieDetailVC: UIViewController {
 }
 
 
-extension MovieDetailVC {
+private extension MovieDetailVC {
     func setupUI() {
         title = movieDetailVM.movie.title
         movieTitle.font = UIFont(defaultFontStyle: .bold, size: 23.0)
-        tagLine.font = UIFont(defaultFontStyle: .regular, size: 14.0)
-        movieDescription.font = UIFont(defaultFontStyle: .regular, size: 12.0)
+        tagLine.font = UIFont(defaultFontStyle: .medium, size: 14.0)
+        movieDescription.font = UIFont(defaultFontStyle: .regular, size: 13.0)
 
         addBookMarkButton()
     }
@@ -93,14 +94,21 @@ extension MovieDetailVC {
             movieTitle.text = movieDetial.title
             tagLine.text = movieDetial.tagline
             movieDescription.text = movieDetial.overview
+            releaseYear.text =  movieDetial.releaseDate?.date(formatter: .apiFormatt)?.toString(formatter: .yearOnly) ?? "--"
+            language.text = movieDetial.language.language
+            votes.text = "\(movieDetial.voteAverage)"
+
+            populairtySeekBar.progress = Float(movieDetial.popularity ?? 0)
+            ratingsSeekBar.progress = Float(movieDetial.voteAverage ?? 0)
             
-            populairtySeekBar.progress = Float(movieDetial.popularity)
-            ratingsSeekBar.progress = Float(movieDetial.voteAverage)
             
-            ImageProvider.getImage(urlString: Constants.imageUrlString(iconCode: movieDetial.posterPath)) { [unowned self] image, error in
+            if let posterPath = movieDetial.posterPath {
                 
-                if let image = image {
-                    self.art.image = image
+                ImageProvider.getImage(urlString: Constants.imageUrlString(iconCode: posterPath)) { [unowned self] image, error in
+                    
+                    if let image = image {
+                        self.art.image = image
+                    }
                 }
             }
         }

@@ -24,13 +24,14 @@ extension UIFont {
 
 	enum DefaultFontStyle: String {
 		case regular
-		case black
 		case light
 		case boldItalic
 		case thin
 		case mediumItalic
 		case medium
         case semibold
+        case heavy
+        case demiBold
         case semiboldItalic
 		case bold
 		case blackItalic
