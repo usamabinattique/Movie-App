@@ -29,4 +29,15 @@ struct Trailer: Codable {
         case publishedAt = "published_at"
         case site, size, type, official, id
     }
+    
+    var source: SourceTypes {
+        SourceTypes(rawValue: site) ?? .none
+    }
+    
+    var trailerURL: URL {
+        print(source.trailerURLString(id: key))
+        let url = URL(string: source.trailerURLString(id: key))!
+        print(url)
+        return url
+    }
 }

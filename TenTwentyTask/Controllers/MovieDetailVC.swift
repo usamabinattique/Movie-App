@@ -44,7 +44,7 @@ class MovieDetailVC: UIViewController {
         }
         
         if let trailerPlaybackVC = segue.destination as? TrailerPlayBackInjector, let movie = sender as? Movie {
-            trailerPlaybackVC.inject(viewModel: BookingViewModel(movie: movie))
+            trailerPlaybackVC.inject(viewModel: TrailerPlaybackViewModel(movie: movie))
         }
     }
 }
@@ -56,9 +56,9 @@ private extension MovieDetailVC {
         movieTitle.font = UIFont(defaultFontStyle: .bold, size: 23.0)
         tagLine.font = UIFont(defaultFontStyle: .medium, size: 14.0)
         movieDescription.font = UIFont(defaultFontStyle: .regular, size: 13.0)
+        watchTrailer.setTitleColor(.red, for: .normal)
         watchTrailer.titleLabel?.font = UIFont(defaultFontStyle: .medium, size: 20.0)
         watchTrailer.backgroundColor = .darkGray
-
         addBookMarkButton()
     }
     
@@ -107,7 +107,7 @@ private extension MovieDetailVC {
             votes.text = "\(movieDetial.voteAverage)"
 
             populairtySeekBar.progress = Float(movieDetial.popularity ?? 0)
-            ratingsSeekBar.progress = Float(movieDetial.voteAverage ?? 0)
+            ratingsSeekBar.progress = Float(movieDetial.voteAverage)
             
             
             if let posterPath = movieDetial.posterPath {

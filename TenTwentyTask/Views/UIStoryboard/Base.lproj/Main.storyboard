@@ -232,7 +232,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TG2-Kt-meh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TG2-Kt-meh">
                                 <rect key="frame" x="0.0" y="822" width="414" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="28d-v7-2cI"/>
@@ -241,7 +241,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Watch Trailer"/>
                                 <connections>
                                     <action selector="watchTrailer_touchUpInside:" destination="cbg-LM-io9" eventType="touchUpInside" id="76N-rI-wB4"/>
-                                    <segue destination="b43-9E-pgx" kind="show" identifier="TrailerPlaybackVC" id="2j4-sa-kHO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -304,6 +303,7 @@
                         <outlet property="votes" destination="xzz-cM-VcB" id="CCj-AK-Ugc"/>
                         <outlet property="watchTrailer" destination="TG2-Kt-meh" id="Yd4-kA-zjf"/>
                         <segue destination="T9i-w6-8XQ" kind="show" identifier="BookingVC" id="Hh9-o3-ySU"/>
+                        <segue destination="b43-9E-pgx" kind="show" identifier="TrailerPlaybackVC" id="WYG-ux-pfz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjm-DT-dsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
