@@ -20,6 +20,15 @@ class MoviesCell: UITableViewCell {
             title.text = movie.title
             releaseYear.text = movie.releaseDate
             movieDescription.text = movie.overview
+            
+            if let posterPath = movie.posterPath {
+                ImageProvider.getImage(urlString: Constants.imageUrlString(iconCode: posterPath)) { [unowned self] image, error in
+                    
+                    if let image = image {
+                        self.icon.image = image
+                    }
+                }
+            }
         }
     }
     
@@ -30,9 +39,8 @@ class MoviesCell: UITableViewCell {
 
     func setupUI() {
         backgroundColor = Colors.theme
-        title.font = UIFont(defaultFontStyle: .regular, size: 13.0)
+        title.font = UIFont(defaultFontStyle: .bold, size: 18.0)
         movieDescription.font = UIFont(defaultFontStyle: .regular, size: 12.0)
         releaseYear.font = UIFont(defaultFontStyle: .regular, size: 13.0)
     }
-    
 }

@@ -16,9 +16,11 @@ struct Constants {
         
     static let failure = "Failure"
     
-//    static func imageUrlString(iconCode: String) -> String {
-//        String(format: "%@%@%@", imageBaseUrl, iconCode, "@2x.png")
-//    }
+    static let imageBaseUrl = "http://image.tmdb.org/t/p/w500/"
+    
+    static func imageUrlString(iconCode: String) -> String {
+        String(format: "%@%@", imageBaseUrl, iconCode)
+    }
 }
 
 

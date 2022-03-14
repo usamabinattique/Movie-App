@@ -63,9 +63,9 @@ class APIClient {
                     return
                 }
                 
-//                let decoderr = JSONDecoder()
-//                let parsedsModel = try! decoderr.decode(decodingType, from: data!)
-//                print(parsedsModel)
+                let decoderr = JSONDecoder()
+                let parsedsModel = try! decoderr.decode(decodingType, from: data!)
+                print(parsedsModel)
                 
                 if !endPoint.isTesting {
                     guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {

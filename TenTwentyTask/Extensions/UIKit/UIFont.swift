@@ -38,7 +38,7 @@ extension UIFont {
 		case thinItalic
 
 		var fontName: String {
-			return "Avenir Next\(self.rawValue.capitalized)"
+			return "AvenirNext-\(self.rawValue.capitalized)"
 		}
 	}
 

@@ -7,10 +7,9 @@
 
 import UIKit
 
-class UpcomingMoviesVC: BaseVC {
-
-    @IBOutlet weak var tableView: UITableView!
+class UpcomingMoviesVC: BaseTableVC {
     
+    private var searchBarButton: UIBarButtonItem!
     private var viewModel: MovieListViewModel!
 
     override func viewDidLoad() {
@@ -23,6 +22,10 @@ class UpcomingMoviesVC: BaseVC {
         if let detailController = segue.destination as? MovieInjector, let movie = sender as? Movie {
             detailController.inject(viewModel: MovieDetailViewModel(movie: movie))
         }
+        
+        if let searchController = segue.destination as? SearchInjector, let movies = sender as? [Movie] {
+            searchController.inject(viewModel: SearchViewModel(movies: movies))
+        }
     }
 }
 
@@ -30,12 +33,10 @@ extension UpcomingMoviesVC {
     
     func setupUI() {
         viewModel = MovieListViewModel()
-        tableView.estimatedRowHeight = 80.0
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.backgroundColor = .clear
-        tableView.tableFooterView =  UIView()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.registerNib(cell: MoviesCell.self)
+        addSearchBarButton()
     }
     
     func getMovies() {
@@ -54,12 +55,33 @@ extension UpcomingMoviesVC {
                     self.presentAlert(Constants.failure, nil, errorMessage)
                 }
                 
-                self.viewModel.upcomingMovies.count > 0 ? self.tableView.reloadData() : ()
+                self.viewModel.upcomingMovies.count > 0 ? self.updateUI() : ()
             }
         }
     }
-}
+    
+    func updateUI() {
+        tableView.reloadData()
+        if viewModel.upcomingMovies.count > 0 {
+            searchBarButton.isHidden = false
+        }
+    }
+    
+    func addSearchBarButton() {
+        searchBarButton  = UIBarButtonItem(image: UIImage(named: "searchIcon"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(searchButtonTapped))
+        
+        navigationItem.rightBarButtonItem = searchBarButton
+        searchBarButton.isHidden = true
+    }
 
+    
+    @objc func searchButtonTapped(notificationBtn: UIBarButtonItem) {
+        performSegue(withIdentifier: SearchVC.storyboardIdentifier, sender: viewModel.upcomingMovies)
+    }
+}
 
 extension UpcomingMoviesVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

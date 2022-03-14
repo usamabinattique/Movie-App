@@ -10,7 +10,7 @@
 struct MovieDetail: Codable {
     let adult: Bool
     let backdropPath: String
-    let belongsToCollection: BelongsToCollection
+    let belongsToCollection: BelongsToCollection?
     let budget: Int
     let genres: [Genre]
     let homepage: String
@@ -52,7 +52,7 @@ struct MovieDetail: Codable {
 // MARK: - BelongsToCollection
 struct BelongsToCollection: Codable {
     let id: Int
-    let name, posterPath, backdropPath: String
+    let name, posterPath, backdropPath: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -70,7 +70,8 @@ struct Genre: Codable {
 // MARK: - ProductionCompany
 struct ProductionCompany: Codable {
     let id: Int
-    let logoPath, name, originCountry: String
+    let name, originCountry: String
+    let logoPath: String?
 
     enum CodingKeys: String, CodingKey {
         case id

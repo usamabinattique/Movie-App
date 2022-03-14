@@ -27,7 +27,7 @@ enum API: NetworkEndPoint {
          case .movieList:
              return "movie/upcoming"
          case .movieDetail(let request):
-             return "movie\((request as! MovieDetailRequestable).movieId)"
+             return "movie/\((request as! MovieDetailRequestable).movieId)"
          }
      }
      
@@ -40,7 +40,10 @@ enum API: NetworkEndPoint {
                          "page": "\(movieRequest.page)"]
              }
              return nil
-         default:
+         case let .movieDetail(detailRequest):
+             if let detailRequest = detailRequest as? MovieDetailRequestable {
+                 return ["api_key": detailRequest.apiKey]
+             }
              return nil
          }
      }

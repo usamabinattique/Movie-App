@@ -31,7 +31,7 @@ extension MovieListViewModel {
     func fetchUpcomingMovies(completion: @escaping MainThreadCompletion) {
         
         
-        let request: MovieRequestable = MovieRequest(apiKey: Constants.apiKey)
+        let request: MovieRequestable = MovieRequest(apiKey: Constants.apiKey, page: 1)
         
         let endPoint = API.movieList(request: request)
         APIClient.shared.request(endPoint: endPoint, decode: MoviesRoot.self, error: DefaultError.self) { result in
