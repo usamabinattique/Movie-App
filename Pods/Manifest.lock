@@ -1,24 +1,28 @@
 PODS:
   - Kingfisher (6.3.1)
   - netfox (1.20.0)
+  - Player (0.13.3)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Kingfisher (~> 6.0)
   - netfox
+  - Player (~> 0.13.2)
   - SVProgressHUD
 
 SPEC REPOS:
   trunk:
     - Kingfisher
     - netfox
+    - Player
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   netfox: 6b5c9724304b0cd99ca8515ac732a9f710e4ea5f
+  Player: e1889a481f14b3bc4065b62bed304c3de3b47dfe
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 43f95b3ef078f943606bc9ef60ac4249e9a0c4a0
+PODFILE CHECKSUM: 0df72ee6be1cad357b02b0a167c320904725abb1
 
 COCOAPODS: 1.11.2

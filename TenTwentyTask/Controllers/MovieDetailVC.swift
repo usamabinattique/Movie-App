@@ -23,6 +23,8 @@ class MovieDetailVC: UIViewController {
     @IBOutlet weak var language: UILabel!
     @IBOutlet weak var releaseYear: UILabel!
     @IBOutlet weak var votes: UILabel!
+    @IBOutlet weak var watchTrailer: UIButton!
+
     
     var movieDetailVM: MovieDetailViewModel!
     private var bookMarkBarButton: UIBarButtonItem!
@@ -40,6 +42,10 @@ class MovieDetailVC: UIViewController {
         if let bookingController = segue.destination as? BookingInjector, let movie = sender as? Movie {
             bookingController.inject(viewModel: BookingViewModel(movie: movie))
         }
+        
+        if let trailerPlaybackVC = segue.destination as? TrailerPlayBackInjector, let movie = sender as? Movie {
+            trailerPlaybackVC.inject(viewModel: BookingViewModel(movie: movie))
+        }
     }
 }
 
@@ -50,6 +56,8 @@ private extension MovieDetailVC {
         movieTitle.font = UIFont(defaultFontStyle: .bold, size: 23.0)
         tagLine.font = UIFont(defaultFontStyle: .medium, size: 14.0)
         movieDescription.font = UIFont(defaultFontStyle: .regular, size: 13.0)
+        watchTrailer.titleLabel?.font = UIFont(defaultFontStyle: .medium, size: 20.0)
+        watchTrailer.backgroundColor = .darkGray
 
         addBookMarkButton()
     }
@@ -112,6 +120,13 @@ private extension MovieDetailVC {
                 }
             }
         }
+    }
+}
+
+// MARK: IB Actions
+extension MovieDetailVC {
+    @IBAction func watchTrailer_touchUpInside(_ sender: UIButton) {
+        performSegue(withIdentifier: TrailerPlaybackVC.storyboardIdentifier, sender: movieDetailVM.movie)
     }
 }
 

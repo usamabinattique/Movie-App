@@ -11,6 +11,7 @@ import UIKit
 enum API: NetworkEndPoint {
     case movieList(request: BaseRequestModel)
     case movieDetail(reqeust: BaseRequestModel)
+    case playbackVideo(request: BaseRequestModel)
 }
 
 /// Implementation of `NetworkEndPoint`
@@ -28,6 +29,8 @@ enum API: NetworkEndPoint {
              return "movie/upcoming"
          case .movieDetail(let request):
              return "movie/\((request as! MovieDetailRequestable).movieId)"
+         case .playbackVideo(let request):
+             return "movie/\((request as! MovieDetailRequestable).movieId)/videos"
          }
      }
      
@@ -43,6 +46,11 @@ enum API: NetworkEndPoint {
          case let .movieDetail(detailRequest):
              if let detailRequest = detailRequest as? MovieDetailRequestable {
                  return ["api_key": detailRequest.apiKey]
+             }
+             return nil
+         case let .playbackVideo(playBackRequest):
+             if let playBackRequest = playBackRequest as? MovieDetailRequestable {
+                 return ["api_key": playBackRequest.apiKey]
              }
              return nil
          }

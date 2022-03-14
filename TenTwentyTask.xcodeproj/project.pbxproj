@@ -41,6 +41,9 @@
 		509BCA4627DF2FC200C3ACDB /* BookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4527DF2FC200C3ACDB /* BookingViewModel.swift */; };
 		509BCA4827DF36A000C3ACDB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4727DF36A000C3ACDB /* String.swift */; };
 		509BCA4A27DF705E00C3ACDB /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4927DF705E00C3ACDB /* Language.swift */; };
+		509BCA4C27DF882A00C3ACDB /* TrailerPlaybackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4B27DF882A00C3ACDB /* TrailerPlaybackVC.swift */; };
+		509BCA4E27DF890000C3ACDB /* TrailerPlaybackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4D27DF890000C3ACDB /* TrailerPlaybackViewModel.swift */; };
+		509BCA5027DF8CDA00C3ACDB /* PlaybackVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BCA4F27DF8CDA00C3ACDB /* PlaybackVideoModel.swift */; };
 		50E159BA27DCBE2F00471FCF /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E159B927DCBE2F00471FCF /* ErrorHandler.swift */; };
 		50E159BC27DCBE4A00471FCF /* MovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E159BB27DCBE4A00471FCF /* MovieRequest.swift */; };
 		50E159F927DCBF9400471FCF /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E159BE27DCBF9400471FCF /* CoreDataStack.swift */; };
@@ -130,6 +133,9 @@
 		509BCA4527DF2FC200C3ACDB /* BookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewModel.swift; sourceTree = "<group>"; };
 		509BCA4727DF36A000C3ACDB /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		509BCA4927DF705E00C3ACDB /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		509BCA4B27DF882A00C3ACDB /* TrailerPlaybackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerPlaybackVC.swift; sourceTree = "<group>"; };
+		509BCA4D27DF890000C3ACDB /* TrailerPlaybackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerPlaybackViewModel.swift; sourceTree = "<group>"; };
+		509BCA4F27DF8CDA00C3ACDB /* PlaybackVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackVideoModel.swift; sourceTree = "<group>"; };
 		50E159B927DCBE2F00471FCF /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		50E159BB27DCBE4A00471FCF /* MovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequest.swift; sourceTree = "<group>"; };
 		50E159BE27DCBF9400471FCF /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -260,6 +266,7 @@
 				5006D52D27D91D0C0078D6DE /* MovieListViewModel.swift */,
 				50E15A4427DCE64900471FCF /* SearchViewModel.swift */,
 				509BCA4527DF2FC200C3ACDB /* BookingViewModel.swift */,
+				509BCA4D27DF890000C3ACDB /* TrailerPlaybackViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -367,6 +374,7 @@
 				508A502A27DCABBD0053CFF9 /* MovieDetailVC.swift */,
 				50E15A4027DCDA8500471FCF /* SearchVC.swift */,
 				509BCA2E27DF1E8D00C3ACDB /* BookingVC.swift */,
+				509BCA4B27DF882A00C3ACDB /* TrailerPlaybackVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -387,6 +395,7 @@
 				508A502D27DCAD470053CFF9 /* Movies.swift */,
 				50E15A4227DCDC8200471FCF /* MovieDetail.swift */,
 				509BCA3027DF1F1000C3ACDB /* Seating.swift */,
+				509BCA4F27DF8CDA00C3ACDB /* PlaybackVideoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -762,6 +771,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E15A4F27DE4B9500471FCF /* UIBarButtonItem.swift in Sources */,
+				509BCA5027DF8CDA00C3ACDB /* PlaybackVideoModel.swift in Sources */,
 				5006D55E27D91F9C0078D6DE /* Router.swift in Sources */,
 				50E15A4B27DE482B00471FCF /* NSObject.swift in Sources */,
 				50E15A3327DCC53600471FCF /* CountProvidable.swift in Sources */,
@@ -788,6 +798,7 @@
 				50E15A3527DCC57800471FCF /* Float.swift in Sources */,
 				50E15A3727DCC6C600471FCF /* UIFont.swift in Sources */,
 				50E15A5327DE69FB00471FCF /* DefaultTheme.swift in Sources */,
+				509BCA4C27DF882A00C3ACDB /* TrailerPlaybackVC.swift in Sources */,
 				509BCA3127DF1F1000C3ACDB /* Seating.swift in Sources */,
 				5006D54827D91D0D0078D6DE /* JSONEncoder.swift in Sources */,
 				508A502727DCAA890053CFF9 /* MoviesCell.swift in Sources */,
@@ -816,6 +827,7 @@
 				5006D55327D91D0D0078D6DE /* UIViewController.swift in Sources */,
 				50E15A4127DCDA8500471FCF /* SearchVC.swift in Sources */,
 				5006D54B27D91D0D0078D6DE /* BaseNetwork.swift in Sources */,
+				509BCA4E27DF890000C3ACDB /* TrailerPlaybackViewModel.swift in Sources */,
 				5006D55427D91D0D0078D6DE /* UIAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

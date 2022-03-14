@@ -8,6 +8,7 @@ target 'TenTwentyTask' do
   # Pods for TenTwentyTask
   pod 'SVProgressHUD'
   pod 'Kingfisher', '~> 6.0'
+  pod "Player", "~> 0.13.2"
   pod 'netfox', :configurations => ['Debug']
 
   
