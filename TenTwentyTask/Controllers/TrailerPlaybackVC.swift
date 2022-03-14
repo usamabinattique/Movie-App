@@ -66,8 +66,10 @@ extension TrailerPlaybackVC {
     }
     
     func playTrailer() {
-//        player.url = trailerPlaybackVM.trailer.trailerURL
-        player.url = Bundle.main.url(forResource: "vikings", withExtension: "mp4")
+        player.url = trailerPlaybackVM.trailer.trailerURL
+        
+        // tested with local resouce and it works fine, but with dynamic url returns a server error, the url works fine on the browser. Unable to debug and fix because of shortage of time
+//        player.url = Bundle.main.url(forResource: "vikings", withExtension: "mp4")
         player.playFromBeginning()
     }
 }

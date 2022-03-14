@@ -232,13 +232,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TG2-Kt-meh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TG2-Kt-meh">
                                 <rect key="frame" x="0.0" y="822" width="414" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="28d-v7-2cI"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Watch Trailer"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Watch Trailer">
+                                    <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="watchTrailer_touchUpInside:" destination="cbg-LM-io9" eventType="touchUpInside" id="76N-rI-wB4"/>
                                 </connections>

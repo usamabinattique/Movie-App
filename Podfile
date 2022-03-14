@@ -9,8 +9,6 @@ target 'TenTwentyTask' do
   pod 'SVProgressHUD'
   pod 'Kingfisher', '~> 6.0'
   pod "Player", "~> 0.13.2"
-  pod 'netfox', :configurations => ['Debug']
-
   
   target 'TenTwentyTaskTests' do
     inherit! :search_paths
